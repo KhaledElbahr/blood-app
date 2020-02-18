@@ -1,0 +1,104 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1">
+    <form [formGroup]="donorActivityForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="id"
+          >Donor ID
+          <input
+            id="id"
+            type="number"
+            formControlName="id"
+            class="form-control"
+            min="1"
+          />
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label for="dateOfDonation"
+          >Date of Donation
+          <input
+            id="dateOfDonation"
+            type="date"
+            formControlName="dateOfDonation"
+            class="form-control"
+          />
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label for="status"
+          >Donor Status
+          <select id="status" formControlName="status" class="form-control">
+            <option *ngFor="let status of statuses" [ngValue]="status">{{
+              status
+            }}</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label for="typeOfDonation" class="d-block">Type Of Donation </label>
+        <input type="radio" formControlName="type" value="Whole Blood" /> Whole
+        Blood
+        <input type="radio" formControlName="type" value="Apheresis" />
+        Apheresis
+      </div>
+
+      <div class="form-group">
+        <label for="temp"
+          >Temperature
+          <input
+            id="temp"
+            type="text"
+            formControlName="temperature"
+            class="form-control"
+          />
+          &#8451;
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label for="weight"
+          >Weight
+          <input
+            id="weight"
+            type="text"
+            formControlName="weight"
+            class="form-control"
+          />
+          kg
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label for="height"
+          >Height
+          <input
+            id="height"
+            type="text"
+            formControlName="height"
+            class="form-control"
+          />
+          Cm
+        </label>
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="!donorActivityForm.valid"
+        class="btn btn-success mt-3 mr-2"
+      >
+        Sumbit
+      </button>
+
+      <button
+        type="reset"
+        [disabled]="!donorActivityForm.dirty"
+        class="btn btn-primary mt-3"
+      >
+        Reset
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<table>
+    <thead>
+      <th class="p-5">#</th>
+      <th class="p-5">Staff ID</th>
+      <th class="p-5">Sex</th>
+      <th class="p-5">User Type</th>
+      <th class="p-5">Department</th>
+      <th class="p-5">Email Address</th>
+      <th class="p-5">Phone Number</th>
+      <th class="p-5">User Name</th>
+      <th class="p-5">Password</th>
+      <th class="p-5">Action</th>
+    </thead>
+    <tbody>
+      <td class="p-5">{{ user.id }}</td>
+      <td class="p-5">{{ user.id }}</td>
+      <td class="p-5">{{ user.sex }}</td>
+      <td class="p-5">{{ user.type }}</td>
+      <td class="p-5">{{ user.department }}</td>
+      <td class="p-5">{{ user.email }}</td>
+      <td class="p-5">{{ user.phone }}</td>
+      <td class="p-5">{{ user.name }}</td>
+      <td class="p-5">{{ user.password }}</td>
+      <td class="p-5">
+        <button class="btn btn-success">Update</button>
+        <button class="btn btn-danger">Delete</button>
+      </td>
+    </tbody>
+  </table>
+  
+  <button class="btn btn-primary" (click)="onLog()">Log</button>
+  

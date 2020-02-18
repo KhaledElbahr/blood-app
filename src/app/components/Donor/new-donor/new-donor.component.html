@@ -1,0 +1,150 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1">
+      <form [formGroup]="donorForm" (ngSubmit)="onSubmit()">
+  
+        <div class="form-group">
+          <label for="civilId"
+            >Civil ID
+            <input
+              id="civilId"
+              type="text"
+              formControlName="civilId"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid':
+                  civilId.invalid && (civilId.dirty || civilId.touched),
+                'is-valid': civilId.valid && (civilId.dirty || civilId.touched)
+              }"
+            />
+          </label>
+          <div
+            *ngIf="civilId.valid && (civilId.dirty || civilId.touched)"
+            class="valid-feedback"
+          >
+            Looks good!
+          </div>
+  
+          <div
+            *ngIf="civilId.invalid && civilId.touched"
+            class="invalid-feedback"
+          >
+          Civil Id is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="donorName"
+            >Full Name
+            <input
+              id="donorName"
+              type="text"
+              formControlName="donorName"
+              class="form-control"
+              pattern=""
+              [ngClass]="{
+                'is-invalid': donorName.invalid && donorName.touched,
+                'is-valid': donorName.valid && (donorName.dirty || donorName.touched)
+              }"
+            />
+          </label>
+          <div
+            *ngIf="donorName.valid && (donorName.dirty || donorName.touched)"
+            class="form-text valid-feedback"
+          >
+            Looks good!
+          </div>
+  
+          <div
+            *ngIf="donorName.invalid && donorName.touched"
+            class="form-text invalid-feedback"
+          >
+            Donor Name is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="sex" class="d-block">SEX </label>
+          <input type="radio" formControlName="sex" value="male" /> Male
+          <input type="radio" formControlName="sex" value="female" /> Female
+        </div>
+        
+        <div class="form-group">
+          <label for="bloodGroup"
+            >Blood Group
+            <select
+              id="bloodGroup"
+              formControlName="bloodGroup"
+              class="form-control"
+            >
+              <option
+                *ngFor="let bloodGroup of bloodGroups"
+                [ngValue]="bloodGroup"
+                >{{ bloodGroup }}</option
+              >
+            </select>
+          </label>
+        </div>
+
+        <div class="form-group">
+            <label for="country"
+              >Country
+              <select
+                id="country"
+                formControlName="country"
+                class="form-control"
+              >
+                <option
+                  *ngFor="let country of countries"
+                  [ngValue]="country"
+                  >{{ country }}</option
+                >
+              </select>
+            </label>
+          </div>
+  
+        <div class="form-group">
+          <label for="email"
+            >Email Address
+            <input
+              id="email"
+              type="email"
+              formControlName="email"
+              class="form-control"
+            />
+          </label>
+        </div>
+
+        <div class="form-group">
+            <label for="phone"
+                >Phone Number
+                <input
+                id="phone"
+                type="number"
+                formControlName="phone"
+                class="form-control"
+                />
+            </label>
+        </div>
+  
+        <button
+          type="submit"
+          [disabled]="!donorForm.valid"
+          class="btn btn-success mt-3 mr-2"
+        >
+          Add Donor
+        </button>
+  
+        <button
+        type="reset"
+        [disabled]="!donorForm.dirty" 
+        class="btn btn-primary mt-3"
+        >
+        Reset
+        </button>
+      </form>
+  
+      <!-- <p>{{ donorForm.value | json }}</p> -->
+      <!-- <p>{{ donorForm.status }}</p>  -->
+   </div> 
+</div>
+  
